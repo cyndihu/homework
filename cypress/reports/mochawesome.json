@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-19T08:51:00.002Z",
+    "end": "2025-06-19T08:51:13.847Z",
+    "duration": 13845,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "63ebda9d-ada5-496b-ae26-ac8e6b7abb8b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test.cy.js",
+      "file": "cypress\\e2e\\test.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4b4b3b8-f5c4-4643-a0bc-757363ea207a",
+          "title": "Create New Service",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit Home Page",
+              "fullTitle": "Create New Service Visit Home Page",
+              "timedOut": null,
+              "duration": 3718,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.visit();",
+              "err": {},
+              "uuid": "2c9dcb05-4ceb-47bb-abe3-956a2204f4d1",
+              "parentUUID": "d4b4b3b8-f5c4-4643-a0bc-757363ea207a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filter Workspace",
+              "fullTitle": "Create New Service Filter Workspace",
+              "timedOut": null,
+              "duration": 2075,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.filterWorkspace('default');",
+              "err": {},
+              "uuid": "c5473290-cc3f-493c-b575-566b9c7455ad",
+              "parentUUID": "d4b4b3b8-f5c4-4643-a0bc-757363ea207a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add a Gateway Service with Full URL",
+              "fullTitle": "Create New Service Add a Gateway Service with Full URL",
+              "timedOut": null,
+              "duration": 3856,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "workspace.addGatewayService('Test Service', 'testTag', 'https://api.kong-air.com/flights');\nworkspace.addGatewayServiceWithFullDetails('3', '60000', '60000', '12121', '12121', 'true');\n// workspace.saveGatewayService();",
+              "err": {},
+              "uuid": "fc3bb65a-e7b7-407e-a136-62d37cc0457d",
+              "parentUUID": "d4b4b3b8-f5c4-4643-a0bc-757363ea207a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2c9dcb05-4ceb-47bb-abe3-956a2204f4d1",
+            "c5473290-cc3f-493c-b575-566b9c7455ad",
+            "fc3bb65a-e7b7-407e-a136-62d37cc0457d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9649,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

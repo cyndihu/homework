@@ -1,0 +1,228 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 5,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-06-20T10:01:00.820Z",
+    "end": "2025-06-20T10:01:59.437Z",
+    "duration": 58617,
+    "testsRegistered": 7,
+    "passPercent": 71.42857142857143,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "508b7cd2-92d6-41fb-99fc-760b9408081c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test.cy.js",
+      "file": "cypress\\e2e\\test.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+          "title": "Create New Service",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit Home Page",
+              "fullTitle": "Create New Service Visit Home Page",
+              "timedOut": null,
+              "duration": 11051,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.visit();",
+              "err": {},
+              "uuid": "8199576b-56d8-4156-b0e6-6e5d03d87ff2",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filter Workspace",
+              "fullTitle": "Create New Service Filter Workspace",
+              "timedOut": null,
+              "duration": 4528,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.filterWorkspace('default');",
+              "err": {},
+              "uuid": "667ea56c-c389-442d-9b1e-9e159defecdd",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add a Certificate",
+              "fullTitle": "Create New Service Add a Certificate",
+              "timedOut": null,
+              "duration": 9321,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('data').then(data => {\n  sidebar.navigateToSection('Certificates');\n  certificatesPage.addCertificate(data.cert, data.key);\n  certificatesPage.saveCertificate().then(id => {\n    cy.log(`Certificate ID: ${id}`);\n    certId = id;\n  });\n});",
+              "err": {},
+              "uuid": "48bb84d3-01ba-4bd6-ac33-57afb9e42f7d",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add a Gateway Service with Full details",
+              "fullTitle": "Create New Service Add a Gateway Service with Full details",
+              "timedOut": null,
+              "duration": 16367,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "sidebar.navigateToSection('Overview');\noverviewPage.addGatewayService('Test_Service', 'testTag', 'https://api.kong-air.com/flights');\noverviewPage.addGatewayServiceWithFullDetails('3', '60000', '60000', '60000', certId, certId, 'true');\noverviewPage.saveGatewayService('Test_Service');\ngatewayServicesPage.getServiceId().then(id => {\n  serviceId = id;\n  cy.log(`Service ID: ${id}`);\n  expect(serviceId).to.exist;\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Test_Service' within the element: <span.kui-icon.close-icon> but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Test_Service' within the element: <span.kui-icon.close-icon> but never did.\n    at OverviewPage.saveGatewayService (webpack://homework/./cypress/pages/overview.js:38:45)\n    at Context.eval (webpack://homework/./cypress/e2e/test.cy.js:41:17)",
+                "diff": null
+              },
+              "uuid": "db5c507c-e5ac-4e2c-8499-62d03e2918e5",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add a Route",
+              "fullTitle": "Create New Service Add a Route",
+              "timedOut": null,
+              "duration": 8519,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gatewayServicesPage.clickAddRoute();\nroutesPage.addRoute('Test_Route', 'HTTPS', '/flights');\nroutesPage.saveRoute('Test_Route');",
+              "err": {},
+              "uuid": "3e9d2608-be13-4aa3-a81c-e54b33b21c29",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fetch services",
+              "fullTitle": "Create New Service Fetch services",
+              "timedOut": null,
+              "duration": 1004,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'http://localhost:8001/default/services?sort_desc=1&size=30',\n  headers: {\n    'Content-Type': 'application/json',\n    'Host': 'localhost:8001'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data[0]).to.have.property('name', 'Test_Service');\n  expect(response.body.data[0].id).to.eq(serviceId);\n  cy.log('Services fetched successfully');\n});",
+              "err": {
+                "message": "AssertionError: expected '0aa7fb6c-c982-44cf-a7b0-93e0077f2d9e' to equal undefined",
+                "estack": "AssertionError: expected '0aa7fb6c-c982-44cf-a7b0-93e0077f2d9e' to equal undefined\n    at Context.eval (webpack://homework/./cypress/e2e/test.cy.js:66:42)\n    at getRet (http://localhost:8002/__cypress/runner/cypress_runner.js:120941:20)\n    at tryCatcher (http://localhost:8002/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8002/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8002/__cypress/runner/cypress_runner.js:120952:66)\n    at Context.then (http://localhost:8002/__cypress/runner/cypress_runner.js:121203:21)",
+                "diff": null
+              },
+              "uuid": "8f142e96-a6d1-4967-af94-33bad2d74c6c",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fetch routes",
+              "fullTitle": "Create New Service Fetch routes",
+              "timedOut": null,
+              "duration": 261,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'http://localhost:8001/default/routes?sort_desc=1&size=30',\n  headers: {\n    'Content-Type': 'application/json',\n    'Host': 'localhost:8001'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data[0]).to.have.property('name', 'Test_Route');\n  cy.log('Services fetched successfully');\n});",
+              "err": {},
+              "uuid": "961c1bcc-e315-48bd-b816-c6d9d40e58cd",
+              "parentUUID": "5135579b-4a0c-4fb2-8461-b674b0121a9d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8199576b-56d8-4156-b0e6-6e5d03d87ff2",
+            "667ea56c-c389-442d-9b1e-9e159defecdd",
+            "48bb84d3-01ba-4bd6-ac33-57afb9e42f7d",
+            "3e9d2608-be13-4aa3-a81c-e54b33b21c29",
+            "961c1bcc-e315-48bd-b816-c6d9d40e58cd"
+          ],
+          "failures": [
+            "db5c507c-e5ac-4e2c-8499-62d03e2918e5",
+            "8f142e96-a6d1-4967-af94-33bad2d74c6c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 51051,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

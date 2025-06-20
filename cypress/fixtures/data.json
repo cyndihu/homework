@@ -1,0 +1,4 @@
+{
+  "cert": "{vault://<vault-backend|entity>/<secret-id>[/<secret-key][/][?query][#version]}",
+  "key": "{vault://<vault-backend|entity>/<secret-id>[/<secret-key][/][?query][#version]}"
+}
