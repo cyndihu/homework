@@ -28,7 +28,7 @@ cypress.config.js               # Cypress configuration
 
 2. **Start the system under test**
 
-   Make sure the Kong Admin API (e.g., http://localhost:8001) is running and accessible.
+   Make sure the Kong Gateway UI (http://localhost:8002) is running and accessible.
 
 3. **Configure test data**
 
@@ -68,6 +68,6 @@ npx marge XXX.json
 
 ## Troubleshooting
 
-- **Port in use or service not started:** Ensure Kong Admin API is running on port 8001.
+- **Port in use or service not started:** Ensure Kong Gateway  is running on port 8002.
 - **Data not synced:** If data is not available immediately, consider adding waits or retries.
 - **Cypress version compatibility:** Cypress 10+ is recommended.
